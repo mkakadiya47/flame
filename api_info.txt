@@ -1,0 +1,184 @@
+************ Register *****************
+http://flame.appsextent.com/index.php
+token = 'flame'
+act = login
+email/username
+password
+
+************ Register *****************
+http://flame.appsextent.com/index.php
+token = 'flame'
+act = register
+first_name
+last_name
+username
+email
+password
+address
+
+********* edit user**************
+http://flame.appsextent.com/index.php
+token = 'flame'
+act = editUser
+id = userid
+
+email
+username
+first_name
+last_name
+address
+image - default format is png
+image_format - default format is png
+
+********* forgot password**************
+http://flame.appsextent.com/index.php
+token = 'flame'
+act = forgotPassword
+email
+
+********* change password**************
+http://flame.appsextent.com/index.php
+token = 'flame'
+act = changePassword
+id = userId
+old_password = old_password
+password = newpassword
+
+********* Add flame**************
+http://flame.appsextent.com/index.php
+token = 'flame'
+act = addFlame
+title
+website
+mobile
+address
+category_id
+latitude
+longitude
+user_id
+description
+images            - json_encode(array(img1,2,3,4,5...))
+image_format      - default format is png
+audio
+audio_format      - default format is mp3
+video
+video_format      - default format is mp4
+
+********* Add flame inside flame(user flame)**************
+http://flame.appsextent.com/index.php
+token = 'flame'
+act = addUserFlame
+user_id
+description
+images            - json_encode(array(img1,2,3,4,5...))
+image_format      - default format is png
+audio
+audio_format      - default format is mp3
+video
+video_format      - default format is mp4
+
+********* Add flame images**************
+http://flame.appsextent.com/index.php
+token = 'flame'
+act = addFlameImage
+user_flame_id
+user_id
+images            - json_encode(array(img1,2,3,4,5...))
+image_format      - default format is png
+
+********* Add flame audio**************
+http://flame.appsextent.com/index.php
+token = 'flame'
+act = addFlameAudio
+user_flame_id
+user_id
+audio
+audio_format      - default format is mp3
+
+********* Add flame video**************
+http://flame.appsextent.com/index.php
+token = 'flame'
+act = addFlameVideo
+user_flame_id
+user_id
+video
+video_format      - default format is mp4
+
+*********Follower**************
+http://flame.appsextent.com/index.php
+token = 'flame'
+act = addFollower
+user_id  - logged in user id
+follower_id - folowed user id
+
+*********Like**************
+http://flame.appsextent.com/index.php
+token = 'flame'
+act = addLike
+user_id  - login user id
+user_flame_id
+
+
+*********get flames**************
+http://flame.appsextent.com/index.php
+token = 'flame'
+act = getFlames
+type = (recent or nearby or popular)
+----if you pass type = nearby then you must be pass latitude and latitude
+
+--- if you search flames with category then pass category_id parameter
+
+*********get flame users**************
+http://flame.appsextent.com/index.php
+token = 'flame'
+act = getFlameUsers
+flame_id
+
+*********get category**************
+http://flame.appsextent.com/index.php
+token = 'flame'
+act = getCategory
+
+*********get followers**************
+http://flame.appsextent.com/index.php
+token = 'flame'
+act = getFollower
+user_id
+
+*********get following**************
+http://flame.appsextent.com/index.php
+token = 'flame'
+act = getFollowing
+user_id
+
+*********addComment**************
+http://flame.appsextent.com/index.php
+token = 'flame'
+act = addComment
+user_id
+user_flame_id
+comment
+
+*********getComments**************
+http://flame.appsextent.com/index.php
+token = 'flame'
+act = getComments
+user_flame_id
+
+*********getImages**************
+http://flame.appsextent.com/index.php
+token = 'flame'
+act = getImages
+user_flame_id
+
+*********getAudio**************
+http://flame.appsextent.com/index.php
+token = 'flame'
+act = getAudio
+user_flame_id
+
+*********getVideo**************
+http://flame.appsextent.com/index.php
+token = 'flame'
+act = getVideo
+user_flame_id

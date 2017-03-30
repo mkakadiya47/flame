@@ -1,0 +1,377 @@
+[19-Sep-2016 12:06:08 America/New_York] PHP Notice:  Undefined variable: act in /home/appsexte/public_html/flame.appsextent.com/flame/index.php on line 32
+[19-Sep-2016 12:06:08 America/New_York] PHP Fatal error:  Method name must be a string in /home/appsexte/public_html/flame.appsextent.com/flame/index.php on line 32
+[20-Sep-2016 04:39:36 America/New_York] PHP Notice:  Use of undefined constant USER_IMAGE_DOWNLOAD_URL - assumed 'USER_IMAGE_DOWNLOAD_URL' in /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php on line 264
+[20-Sep-2016 04:39:36 America/New_York] PHP Notice:  Use of undefined constant USER_IMAGE_DOWNLOAD_URL - assumed 'USER_IMAGE_DOWNLOAD_URL' in /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php on line 264
+[21-Sep-2016 10:11:55 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: parameter was not defined' in /home/appsexte/public_html/flame.appsextent.com/flame/Database.php:48
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/Database.php(48): PDOStatement->execute()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(167): Database->execute()
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/index.php(32): Controller->editUser()
+#3 {main}
+  thrown in /home/appsexte/public_html/flame.appsextent.com/flame/Database.php on line 48
+[21-Sep-2016 13:31:52 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[21-Sep-2016 13:32:35 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[21-Sep-2016 14:29:16 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[21-Sep-2016 14:45:54 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[21-Sep-2016 14:47:01 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[22-Sep-2016 01:41:20 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[22-Sep-2016 01:41:56 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[22-Sep-2016 02:03:54 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[22-Sep-2016 02:08:23 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[22-Sep-2016 04:19:00 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[22-Sep-2016 04:19:24 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[22-Sep-2016 04:22:17 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[22-Sep-2016 04:24:49 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[22-Sep-2016 04:26:11 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host 64.233.186.108 [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(32): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[22-Sep-2016 04:27:45 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[22-Sep-2016 04:30:05 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[22-Sep-2016 04:33:13 America/New_York] PHP Parse error:  syntax error, unexpected '.200' (T_DNUMBER) in /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php on line 14
+[22-Sep-2016 04:34:04 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host 74.125.200.109 [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[22-Sep-2016 04:35:39 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host 74.125.200.109 [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[22-Sep-2016 04:47:45 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[22-Sep-2016 04:50:22 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[22-Sep-2016 04:53:38 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[22-Sep-2016 04:55:21 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[23-Sep-2016 15:51:42 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1109 Unknown table 'f' in field list' in /home/appsexte/public_html/flame.appsextent.com/flame/Database.php:48
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/Database.php(48): PDOStatement->execute()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(550): Database->execute()
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/index.php(32): Controller->getFlames()
+#3 {main}
+  thrown in /home/appsexte/public_html/flame.appsextent.com/flame/Database.php on line 48
+[24-Sep-2016 13:34:51 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`appsexte_flame`.`user_comment`, CONSTRAINT `user_comment_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)' in /home/appsexte/public_html/flame.appsextent.com/flame/Database.php:48
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/Database.php(48): PDOStatement->execute()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(728): Database->execute()
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/index.php(32): Controller->addComment()
+#3 {main}
+  thrown in /home/appsexte/public_html/flame.appsextent.com/flame/Database.php on line 48
+[25-Sep-2016 02:50:03 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php(232): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[25-Sep-2016 03:20:08 America/New_York] PHP Notice:  Undefined index: category_id in /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php on line 305
+[25-Sep-2016 03:20:09 America/New_York] PHP Warning:  file_put_contents(/home/appsexte/public_html/flame.appsextent.com/flame/uploads/images/57e77aa9276ae_6954bbe1e879ca71de7085d22acef721.png): failed to open stream: No such file or directory in /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php on line 475
+[25-Sep-2016 03:26:01 America/New_York] PHP Notice:  Undefined index: category_id in /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php on line 305
+[25-Sep-2016 03:26:02 America/New_York] PHP Warning:  file_put_contents(/home/appsexte/public_html/flame.appsextent.com/flame/uploads/images/57e77c0a4c036_0ffcc2f25679560bbc950d028b45471e.png): failed to open stream: No such file or directory in /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php on line 475
+[25-Sep-2016 03:28:39 America/New_York] PHP Notice:  Undefined index: category_id in /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php on line 305
+[28-Sep-2016 04:10:38 America/New_York] PHP Fatal error:  Call to undefined method Controller::sendMessage() in /home/appsexte/public_html/flame.appsextent.com/flame/index.php on line 37
+[28-Sep-2016 04:12:20 America/New_York] PHP Fatal error:  Call to undefined method Controller::sendMessage() in /home/appsexte/public_html/flame.appsextent.com/flame/index.php on line 37
+[28-Sep-2016 04:15:17 America/New_York] PHP Fatal error:  Call to undefined method Controller::sendMessage() in /home/appsexte/public_html/flame.appsextent.com/flame/index.php on line 37
+[28-Sep-2016 04:15:25 America/New_York] PHP Fatal error:  Call to undefined method Controller::sendMessage() in /home/appsexte/public_html/flame.appsextent.com/flame/index.php on line 37
+[28-Sep-2016 04:16:27 America/New_York] PHP Fatal error:  Call to undefined method Controller::sendMessage() in /home/appsexte/public_html/flame.appsextent.com/flame/index.php on line 37
+[28-Sep-2016 04:16:36 America/New_York] PHP Fatal error:  Call to undefined method Controller::sendMessage() in /home/appsexte/public_html/flame.appsextent.com/flame/index.php on line 37
+[28-Sep-2016 04:16:41 America/New_York] PHP Fatal error:  Call to undefined method Controller::sendMessage() in /home/appsexte/public_html/flame.appsextent.com/flame/index.php on line 37
+[28-Sep-2016 04:16:43 America/New_York] PHP Fatal error:  Call to undefined method Controller::sendMessage() in /home/appsexte/public_html/flame.appsextent.com/flame/index.php on line 37
+[29-Sep-2016 14:09:32 America/New_York] PHP Notice:  Undefined variable: act in /home/appsexte/public_html/flame.appsextent.com/flame/index.php on line 37
+[29-Sep-2016 14:09:32 America/New_York] PHP Fatal error:  Method name must be a string in /home/appsexte/public_html/flame.appsextent.com/flame/index.php on line 37
+[01-Oct-2016 03:19:17 America/New_York] PHP Notice:  Undefined variable: act in /home/appsexte/public_html/flame.appsextent.com/flame/index.php on line 37
+[01-Oct-2016 03:19:17 America/New_York] PHP Fatal error:  Method name must be a string in /home/appsexte/public_html/flame.appsextent.com/flame/index.php on line 37
+[01-Oct-2016 03:49:00 America/New_York] PHP Notice:  Undefined variable: act in /home/appsexte/public_html/flame.appsextent.com/flame/index.php on line 38
+[01-Oct-2016 03:49:00 America/New_York] PHP Fatal error:  Method name must be a string in /home/appsexte/public_html/flame.appsextent.com/flame/index.php on line 38
+[01-Oct-2016 03:54:32 America/New_York] PHP Notice:  Undefined variable: pushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php on line 812
+[01-Oct-2016 03:54:32 America/New_York] PHP Fatal error:  Call to a member function ios() on a non-object in /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php on line 812
+[01-Oct-2016 03:56:01 America/New_York] PHP Fatal error:  Cannot use object of type stdClass as array in /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php on line 813
+[01-Oct-2016 03:56:34 America/New_York] PHP Warning:  stream_socket_client(): SSL operation failed with code 1. OpenSSL Error messages:
+error:14092105:SSL routines:SSL3_GET_SERVER_HELLO:wrong cipher returned in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[01-Oct-2016 03:56:34 America/New_York] PHP Warning:  stream_socket_client(): Failed to enable crypto in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[01-Oct-2016 03:56:34 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:443 (Unknown error) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[01-Oct-2016 03:59:30 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[01-Oct-2016 04:06:57 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/simplepush.php on line 21
+[01-Oct-2016 04:09:03 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[01-Oct-2016 04:12:20 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/simplepush.php on line 21
+[01-Oct-2016 04:19:29 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[01-Oct-2016 04:27:42 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[01-Oct-2016 04:28:33 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/simplepush.php on line 21
+[01-Oct-2016 04:29:06 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/simplepush.php on line 21
+[01-Oct-2016 04:30:47 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/simplepush.php on line 21
+[01-Oct-2016 04:31:49 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/simplepush.php on line 21
+[01-Oct-2016 04:31:57 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/simplepush.php on line 21
+[01-Oct-2016 04:32:22 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/simplepush.php on line 21
+[01-Oct-2016 04:32:22 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/simplepush.php on line 21
+[01-Oct-2016 08:22:58 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/simplepush.php on line 21
+[02-Oct-2016 00:17:52 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/simplepush.php on line 21
+[02-Oct-2016 00:18:52 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/simplepush.php on line 21
+[02-Oct-2016 00:25:05 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[02-Oct-2016 00:38:57 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[03-Oct-2016 15:06:05 America/New_York] PHP Warning:  array_merge(): Argument #2 is not an array in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 88
+[03-Oct-2016 15:06:05 America/New_York] PHP Notice:  Undefined property: Controller::$api_status in /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php on line 260
+[03-Oct-2016 15:06:05 America/New_York] PHP Notice:  Undefined property: Controller::$api_message in /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php on line 264
+[03-Oct-2016 15:06:05 America/New_York] PHP Notice:  Undefined property: Controller::$api_data in /home/appsexte/public_html/flame.appsextent.com/flame/Controller.php on line 268
+[03-Oct-2016 15:26:50 America/New_York] PHP Notice:  Undefined index: s_first_name in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 83
+[04-Oct-2016 03:58:41 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3
+[05-Oct-2016 01:45:49 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[05-Oct-2016 01:46:03 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[05-Oct-2016 01:47:03 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[05-Oct-2016 01:47:46 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[05-Oct-2016 01:48:41 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[05-Oct-2016 01:49:03 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[05-Oct-2016 01:49:47 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[05-Oct-2016 04:36:49 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[05-Oct-2016 04:39:06 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[05-Oct-2016 04:48:15 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[05-Oct-2016 04:52:28 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[05-Oct-2016 04:52:49 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[05-Oct-2016 04:58:17 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[05-Oct-2016 05:01:45 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[05-Oct-2016 06:08:32 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[05-Oct-2016 07:19:26 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[05-Oct-2016 07:56:58 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[05-Oct-2016 07:57:12 America/New_York] PHP Warning:  stream_socket_client(): unable to connect to ssl://gateway.sandbox.push.apple.com:2195 (Connection timed out) in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 75
+[07-Oct-2016 04:15:43 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting '`' in /home/appsexte/public_html/flame.appsextent.com/flame/sendEmail.php on line 24
+[07-Oct-2016 04:16:48 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting '`' in /home/appsexte/public_html/flame.appsextent.com/flame/sendEmail.php on line 24
+[07-Oct-2016 04:17:24 America/New_York] PHP Notice:  Use of undefined constant FROM_EMAIL - assumed 'FROM_EMAIL' in /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php on line 15
+[07-Oct-2016 04:17:24 America/New_York] PHP Notice:  Use of undefined constant EMAIL_PASSWORD - assumed 'EMAIL_PASSWORD' in /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php on line 16
+[07-Oct-2016 04:17:25 America/New_York] PHP Notice:  Use of undefined constant FROM_EMAIL - assumed 'FROM_EMAIL' in /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php on line 23
+[07-Oct-2016 04:17:25 America/New_York] PHP Notice:  Use of undefined constant FROM_EMAIL_TITLE - assumed 'FROM_EMAIL_TITLE' in /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php on line 23
+[07-Oct-2016 04:17:25 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [FROM_EMAIL] does not comply with RFC 2822, 3.6.2.' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mime/Headers/MailboxHeader.php:347
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mime/Headers/MailboxHeader.php(263): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('FROM_EMAIL')
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mime/Headers/MailboxHeader.php(106): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mime/Headers/MailboxHeader.php(63): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mime/SimpleMimeEntity.php(592): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swif in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 347
+[07-Oct-2016 04:18:32 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/sendEmail.php(25): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 { in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[08-Oct-2016 03:39:43 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3
+[08-Oct-2016 03:40:46 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/sendEmail.php(25): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 { in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[08-Oct-2016 03:42:14 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/sendEmail.php(25): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 { in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[08-Oct-2016 04:01:51 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/sendEmail.php(25): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 { in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[08-Oct-2016 04:10:24 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/sendEmail.php(25): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 { in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[08-Oct-2016 04:11:55 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/sendEmail.php(25): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 { in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[08-Oct-2016 05:12:26 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/sendEmail.php(25): MailManager->sendEmail('bhaveshsoni13@g...', 'Forgot Password', '<h2>You recentl...')
+#5 { in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[08-Oct-2016 11:20:49 America/New_York] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]' in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php:269
+Stack trace:
+#0 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php(62): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/AbstractSmtpTransport.php(113): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Mailer.php(79): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/appsexte/public_html/flame.appsextent.com/flame/MailManager.php(31): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/appsexte/public_html/flame.appsextent.com/flame/sendEmail.php(25): MailManager->sendEmail('mkakadiya47@gma...', 'Forgot Password', '<h2>You recentl...')
+#5 { in /home/appsexte/public_html/flame.appsextent.com/flame/lib/classes/Swift/Transport/StreamBuffer.php on line 269
+[13-Jan-2017 16:52:44 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3
+[13-Jan-2017 17:03:23 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3
+[14-Jan-2017 14:52:59 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3
+[14-Jan-2017 15:32:49 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3
+[24-Jan-2017 10:09:31 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3
+[24-Jan-2017 11:52:12 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3
+[24-Jan-2017 20:19:59 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3
+[24-Jan-2017 21:35:02 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3
+[10-Feb-2017 12:51:24 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3
+[10-Feb-2017 13:50:50 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3
+[11-Feb-2017 05:57:49 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3
+[11-Feb-2017 06:35:17 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3
+[18-Feb-2017 00:49:49 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3
+[18-Feb-2017 03:13:33 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3
+[13-Mar-2017 18:19:51 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3
+[13-Mar-2017 19:38:37 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3
+[14-Mar-2017 07:57:47 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3
+[14-Mar-2017 09:35:16 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3
+[22-Mar-2017 20:31:44 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3
+[22-Mar-2017 22:13:40 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3
+[22-Mar-2017 23:49:35 America/New_York] PHP Fatal error:  Cannot redeclare class PushNotification in /home/appsexte/public_html/flame.appsextent.com/flame/PushNotification.php on line 3

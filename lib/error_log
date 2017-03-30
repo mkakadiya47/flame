@@ -1,0 +1,1 @@
+[19-Sep-2016 05:05:08 America/New_York] PHP Fatal error:  Class 'Swift_DependencyContainer' not found in /home/appsexte/public_html/flame.appsextent.com/flame/lib/dependency_maps/cache_deps.php on line 3
