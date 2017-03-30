@@ -1,9 +1,9 @@
 <?php
 define("SITE_URL", "http://flame.appsextent.com/");
 define("HOST", "localhost");
-define("DBUSER", "appsexte");
-define("DBPASS", "44ozB8h8Iq");
-define("DBNAME", "appsexte_flame");
+define("DBUSER", "root");
+define("DBPASS", "root");
+define("DBNAME", "flame");
 define("TOKEN", "flame");
 define("FLAME_IMAGE_DOWNLOAD_URL", SITE_URL."/uploads/image/");
 define("FLAME_AUDIO_DOWNLOAD_URL", SITE_URL."/uploads/audio/");
