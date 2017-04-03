@@ -17,17 +17,23 @@ class MailManager
 	}
 
 	public function sendEmail($to, $subject, $message){
-		$mailer = Swift_Mailer::newInstance($this->transport);
-		// Create a message
-		$message = Swift_Message::newInstance('Wonderful Subject')
-		  ->setFrom(array(FROM_EMAIL => FROM_EMAIL_TITLE))
-		  ->setTo(array($to))
-		  ->setSubject($subject)
-		  ->setContentType("text/html")
-		  ->setBody($message)
-		  ;
+		$headers = "MIME-Version: 1.0" . "\r\n";
+		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
-		// Send the message
-		$result = $mailer->send($message);
+		// More headers
+		$headers .= 'From: <mkakadiya47@gmail.com>' . "\r\n";
+		mail($to,$subject,$message,$headers);
+		// $mailer = Swift_Mailer::newInstance($this->transport);
+		// // Create a message
+		// $message = Swift_Message::newInstance('Wonderful Subject')
+		//   ->setFrom(array(FROM_EMAIL => FROM_EMAIL_TITLE))
+		//   ->setTo(array($to))
+		//   ->setSubject($subject)
+		//   ->setContentType("text/html")
+		//   ->setBody($message)
+		//   ;
+
+		// // Send the message
+		// $result = $mailer->send($message);
 	}
 }

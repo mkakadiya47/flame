@@ -64,6 +64,7 @@ class PushNotification {
 
         // Sends Push notification for iOS users
     public function ios($data, $devicetoken) {
+
         $ctx = stream_context_create();
         // ck.pem is your certificate file
         stream_context_set_option($ctx, 'ssl', 'local_cert', 'Flame.pem');
@@ -71,7 +72,7 @@ class PushNotification {
 
         // Open a connection to the APNS server
         $fp = stream_socket_client(
-            'ssl://gateway.sandbox.push.apple.com:2195', $err,
+            'ssl://gateway.sandbox.push.apple.com:443', $err,
             $errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
 
         if (!$fp)
@@ -80,13 +81,12 @@ class PushNotification {
         // Create the payload body
         $body['aps'] = array(
             'alert' => array(
-                'title' => $data['first_name'],
+                'title' => $data['s_first_name'],
                 'body' => $data['message'],
              ),
             'sound' => 'default'
         );
-
-        $body = array_merge($body, $data);
+        $body['sender_id'] = $data['sender_id'];
 
         // Encode the payload as JSON
         $payload = json_encode($body);
