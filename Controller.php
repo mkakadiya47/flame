@@ -335,12 +335,15 @@ class Controller extends Database {
 
 	public function addFlame(){
 		$query = 'INSERT INTO flame SET 
+					create_at = NOW(),
+					updated_at = NOW(),
 					title = :title,
 					website = :website, 
 					category_id = :category_id, 
 					mobile = :mobile, 
 					address = :address, 
 					latitude = :latitude,
+					country = :country,
 					longitude = :longitude';
 		$bind = array(
 			':title' => $_REQUEST["title"],
@@ -349,6 +352,7 @@ class Controller extends Database {
 			':address' => $_REQUEST['address'],
 			':latitude' => $_REQUEST['latitude'],
 			':longitude' => $_REQUEST['longitude'],
+			':country' => $_REQUEST['country'],
 			':category_id' => $_REQUEST['category_id'],
 		);
 		$this->query($query);
@@ -587,6 +591,8 @@ class Controller extends Database {
 	}
 
    	public function getFlames() {
+   		$currentDate = new \DateTime('now');
+   		$currentDate->modify('-1 day');
    		$pageNo = isset($_REQUEST['page'])?$_REQUEST['page']:1;
    		$allRecord = isset($_REQUEST['all_record'])?$_REQUEST['all_record']:0;
 		$query = 'SELECT 
@@ -598,6 +604,10 @@ class Controller extends Database {
 						f.latitude,
 						f.longitude,
 						f.owner_id,
+						f.created_at,
+						f.updated_at,
+						f.owner_id,
+						f.view_counter,
 						(select fi.image from flame_image fi join user_flame uf on uf.id = fi.user_flame_id where uf.flame_id = f.id limit 1) as image, 
 						f.category_id,
 						(select count(uf.id) as flamedBy from user_flame uf where uf.flame_id = f.id ) as flamedBy,
@@ -607,17 +617,15 @@ class Controller extends Database {
 							where cuf.flame_id=f.id
 						) AS likes
 						';
-		$categoryQuery  = null;
+		$fromQuery = ' From flame f where f.updated_at >= "'.$currentDate->format('Y-m-d H:i:s').'"';
 		if(isset($_REQUEST['category_id']) && $_REQUEST['category_id']){
-			$categoryQuery = ' FROM flame f where f.category_id = '.$_REQUEST['category_id'];
+			$fromQuery .= ' and f.category_id = '.$_REQUEST['category_id'];
 		}
-
+		if(isset($_REQUEST['country']) && $_REQUEST['country']){
+			$fromQuery .= ' and f.country = '.$_REQUEST['country'];
+		}
    		if(isset($_REQUEST['type']) && $_REQUEST['type'] == 'recent'){
-   			if($categoryQuery){
-   				$query .= $categoryQuery.' order by f.id DESC';
-   			}else{
-				$query .= ' FROM flame f order by f.id DESC';
-   			}
+			$fromQuery .= ' order by f.id DESC';
    		}elseif(isset($_REQUEST['type']) && $_REQUEST['type'] == 'nearby'){
    			if( !isset($_REQUEST['latitude']) || !isset($_REQUEST['latitude']) ){
    				$this->api_status = '0';
@@ -630,26 +638,12 @@ class Controller extends Database {
    			$query .= ",( 3959 * acos( cos( radians(".$_REQUEST['latitude'].") ) * cos( radians( f.latitude ) ) * 
 							cos( radians( f.longitude ) - radians(".$_REQUEST['longitude'].") ) + sin( radians(".$_REQUEST['latitude']." ) ) * 
 							sin( radians( f.latitude) ) ) ) AS distance";
-			
-   			if($categoryQuery){
-   				$query .= $categoryQuery.' HAVING distance < 25 ORDER BY distance';
-   			}else{
-				$query .= ' FROM flame f HAVING distance < 25 ORDER BY distance';
-   			}
+   			
+			$fromQuery .= ' HAVING distance < 25 ORDER BY distance';
    		}elseif(isset($_REQUEST['type']) && $_REQUEST['type'] == 'popular'){
-			
-   			if($categoryQuery){
-   				$query .= $categoryQuery.' HAVING likes > 0 ORDER BY likes DESC';
-   			}else{
-				$query .= ' FROM flame f HAVING likes > 0 ORDER BY likes DESC';
-   			}
-   		}else{
-   			if($categoryQuery){
-   				$query .= $categoryQuery;
-   			}else{
-   				$query .= ' FROM flame f';
-   			}
+			$fromQuery .= ' HAVING likes > 0 ORDER BY likes DESC';
    		}
+   		$query .= $fromQuery;
 		$this->query($query);
 		$this->execute();
 		$this->totalRecords = $this->rowCount();
@@ -692,7 +686,22 @@ class Controller extends Database {
   	}
 
    	public function getFlameUsers() {
+   		$query = 'SELECT f.view_counter FROM flame f where f.id = '.$_REQUEST['flame_id'];
+		$this->query($query);
+		$this->execute();
+		$result = $this->single();
+		$viewer = explode(',', $result['view_counter']);
+		$viewer[] = $_REQUEST['user_id'];
+		$query = 'UPDATE flame f set f.view_counter = :view_counter where f.id = '.$_REQUEST['flame_id'];
+		$bind = array(
+					'view_counter' => implode(',', array_unique(array_filter($viewer)))
+				);
+		$this->query($query);
+		$this->bind($bind);
+		$this->execute();
+
    		$pageNo = isset($_REQUEST['page'])?$_REQUEST['page']:1;
+
 		$query = 'SELECT 
 						uf.id,
 						uf.description,
@@ -1275,8 +1284,11 @@ class Controller extends Database {
 			':description' => $_REQUEST["description"],
 		);
 		$query = "UPDATE user_flame uf set uf.description = :description where uf.id=:user_flame_id";
+		$updateMainFlameQuery = "UPDATE flame f set f.updated_at = NOW() where f.id=".$_REQUEST["flame_id"];
 		$this->query($query);
 		$this->bind($bind);
+		$this->execute();
+		$this->query($updateMainFlameQuery);
 		$this->execute();
 		if($_REQUEST['edit_type'] == 'Flame'){
 			$flameId = $_REQUEST["flame_id"];
@@ -1285,6 +1297,7 @@ class Controller extends Database {
 				':title' => $_REQUEST["title"],
 				':website' => $_REQUEST["website"],
 				':mobile' => $_REQUEST["mobile"],
+				':country' => $_REQUEST["country"],
 				':address' => $_REQUEST["address"],
 				':latitude' => $_REQUEST["latitude"],
 				':longitude' => $_REQUEST["longitude"],
@@ -1296,6 +1309,7 @@ class Controller extends Database {
 							f.website = :website,
 							f.mobile = :mobile,
 							f.address = :address,
+							f.country = :country,
 							f.latitude = :latitude,
 							f.longitude = :longitude,
                                                         f.category_id = :category_id
