@@ -4,7 +4,7 @@ class PushNotification {
     // (Android)API access key from Google API Console.
     private static $API_ACCESS_KEY = "AIzaSyDBP2C4ICeGEl6yla_VrYjbCRpiz-hi814";
     // (iOS) Private key passphrase.
-    private static $passphrase = "";
+    private static $passphrase = "admin";
     // (Windows Phone 8) The name of our push channel.
     private static $channelName = "flame";
         // Sends Push notification for Android users
