@@ -335,7 +335,7 @@ class Controller extends Database {
 
 	public function addFlame(){
 		$query = 'INSERT INTO flame SET 
-					create_at = NOW(),
+					created_at = NOW(),
 					updated_at = NOW(),
 					title = :title,
 					website = :website, 
