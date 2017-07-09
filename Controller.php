@@ -624,7 +624,7 @@ class Controller extends Database {
 			$fromQuery .= ' and f.category_id = '.$_REQUEST['category_id'];
 		}
 		if(isset($_REQUEST['country']) && $_REQUEST['country']){
-			$fromQuery .= ' and f.country = '.$_REQUEST['country'];
+			$fromQuery .= ' and f.country = "'.$_REQUEST['country'].'"';
 		}
    		if(isset($_REQUEST['type']) && $_REQUEST['type'] == 'recent'){
 			$fromQuery .= ' order by f.updated_at DESC';
@@ -662,7 +662,7 @@ class Controller extends Database {
 			$this->api_data = $results;
 		} else {
 			$this->api_status = '0';
-			$this->api_message = 'Data not found';
+			$this->api_message = 'Flame not found';
 			$this->api_data = '';
 		}
 	 	return $this->response();
