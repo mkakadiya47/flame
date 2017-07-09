@@ -606,6 +606,7 @@ class Controller extends Database {
 						f.owner_id,
 						f.created_at,
 						f.updated_at,
+						unix_timestamp(f.updated_at) as updated_timestamp,
 						f.owner_id,
 						f.view_counter,
 						(select fi.image from flame_image fi join user_flame uf on uf.id = fi.user_flame_id where uf.flame_id = f.id limit 1) as image, 
