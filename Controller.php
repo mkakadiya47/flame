@@ -609,6 +609,7 @@ class Controller extends Database {
 						unix_timestamp(f.updated_at) as updated_timestamp,
 						f.owner_id,
 						f.view_counter,
+						LENGTH(f.view_counter) - LENGTH(REPLACE(f.view_counter, ",", "")) + 1 as viewer,
 						(select fi.image from flame_image fi join user_flame uf on uf.id = fi.user_flame_id where uf.flame_id = f.id limit 1) as image, 
 						f.category_id,
 						(select count(uf.id) as flamedBy from user_flame uf where uf.flame_id = f.id ) as flamedBy,
