@@ -993,6 +993,35 @@ class Controller extends Database {
 	 	return $this->response();
   	}
 
+   	public function getViewer() {
+		$query = 'SELECT 
+						f.view_counter
+						FROM flame f where f.id ='.$_REQUEST['flame_id'];
+		$this->query($query);
+		$result = $this->single();
+		if ($result) {
+			$viewer = $result['view_counter'];
+			if($viewer){
+				$viewers = explode(',', $viewer);
+				$viewerDetails = array();
+				foreach ($viewers as $key => $viewer) {
+					$viewerDetails[] = $this->getUser($viewer);
+
+				}
+			}
+
+			$this->api_status = '1';
+			$this->api_message = 'SUCCESS';
+			$this->api_data = $viewerDetails;
+			$this->totalRecords = count($viewerDetails);
+		} else {
+			$this->api_status = '0';
+			$this->api_message = 'Data not found';
+			$this->api_data = '';
+		}
+	 	return $this->response();
+  	}
+
 	public function addComment(){
 		date_default_timezone_set('UTC');
 		// var_dump($date);exit;
