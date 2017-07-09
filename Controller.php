@@ -1001,9 +1001,9 @@ class Controller extends Database {
 		$result = $this->single();
 		if ($result) {
 			$viewer = $result['view_counter'];
+			$viewerDetails = array();
 			if($viewer){
 				$viewers = explode(',', $viewer);
-				$viewerDetails = array();
 				foreach ($viewers as $key => $viewer) {
 					$viewerDetails[] = $this->getUser($viewer);
 
