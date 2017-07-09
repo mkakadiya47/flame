@@ -627,7 +627,7 @@ class Controller extends Database {
 			$fromQuery .= ' and f.country = '.$_REQUEST['country'];
 		}
    		if(isset($_REQUEST['type']) && $_REQUEST['type'] == 'recent'){
-			$fromQuery .= ' order by f.id DESC';
+			$fromQuery .= ' order by f.updated_at DESC';
    		}elseif(isset($_REQUEST['type']) && $_REQUEST['type'] == 'nearby'){
    			if( !isset($_REQUEST['latitude']) || !isset($_REQUEST['latitude']) ){
    				$this->api_status = '0';
