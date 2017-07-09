@@ -1044,37 +1044,17 @@ class Controller extends Database {
 		$userData['message_date'] = $messageDate;
 		$userData['message'] = urldecode($_REQUEST['message']);
 		$userData['r_device_token'] = $receiver['device_token'];
-		$userData = json_encode($userData);
-
-		$postdata = http_build_query(
-		    array(
-		        'userData' => $userData
-		    )
-		);
-
-		$opts = array('http' =>
-		    array(
-		        'method'  => 'POST',
-		        'header'  => 'Content-type: application/x-www-form-urlencoded',
-		        'content' => $postdata
-		    )
-		);
-
-		$context  = stream_context_create($opts);
-
-		$result = file_get_contents('http://flame.appsextent.com/Controller.php', false, $context);
-
-
-		// $pushNotification = new PushNotification();
-		// $data['s_first_name'] = $sender['first_name'];
-		// $data['message'] = $_REQUEST['message'];
-		// $data['sender_id'] = $sender['id'];
-		// $data['receiver_id'] = $receiver['id'];
-		// if($receiver['device'] == 'android'){
-		// 	$pushNotification->android($data, $receiver['device_token']);
-		// }else{
-		// 	$pushNotification->ios($data, $receiver['device_token']);
-		// }
+		
+		$pushNotification = new PushNotification();
+		$data['s_first_name'] = $sender['first_name'];
+		$data['message'] = $_REQUEST['message'];
+		$data['sender_id'] = $sender['id'];
+		$data['receiver_id'] = $receiver['id'];
+		if($receiver['device'] == 'android'){
+			$pushNotification->android($data, $receiver['device_token']);
+		}else{
+			$pushNotification->ios($data, $receiver['device_token']);
+		}
 
  		return $this->response();
 	}
