@@ -1037,7 +1037,7 @@ class Controller extends Database {
 		$this->api_status = '1';
 		$this->api_message = 'Message send successfully';
 		$this->api_data = '';
-		//$sender = $this->getUser($_REQUEST['sender_id']);
+		$sender = $this->getUser($_REQUEST['sender_id']);
 		$receiver = $this->getUser($_REQUEST['receiver_id']);
 		//$ch = curl_init();
 		$userData = $this->getUser($_REQUEST['sender_id']);
