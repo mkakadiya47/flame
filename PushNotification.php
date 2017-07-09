@@ -72,7 +72,7 @@ class PushNotification {
 
         // Open a connection to the APNS server
         $fp = stream_socket_client(
-            'ssl://gateway.sandbox.push.apple.com:443', $err,
+            'ssl://gateway.sandbox.push.apple.com:2195', $err,
             $errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
 
         if (!$fp)
