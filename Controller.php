@@ -660,6 +660,10 @@ class Controller extends Database {
 		if (count($results) > 0) {
 			$this->api_status = '1';
 			$this->api_message = 'SUCCESS';
+			foreach($results as $key => $value)
+			{
+				$results[$key]['owner_detail']=$this->getUser($value['owner_id']);
+			}
 			$this->api_data = $results;
 		} else {
 			$this->api_status = '0';
