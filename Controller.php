@@ -631,6 +631,9 @@ class Controller extends Database {
 		if(isset($_REQUEST['country']) && $_REQUEST['country']){
 			$fromQuery .= ' and f.country = "'.$_REQUEST['country'].'"';
 		}
+		if(isset($_REQUEST['region']) && $_REQUEST['region']){
+			$fromQuery .= ' and f.region = "'.$_REQUEST['region'].'"';
+		}
    		if(isset($_REQUEST['type']) && $_REQUEST['type'] == 'recent'){
 			$fromQuery .= ' order by f.updated_at DESC';
    		}elseif(isset($_REQUEST['type']) && $_REQUEST['type'] == 'nearby'){
