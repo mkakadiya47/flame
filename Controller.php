@@ -608,6 +608,8 @@ class Controller extends Database {
 						f.country,
 						f.created_at,
 						f.updated_at,
+						( select count(v.id) from flame_video v join user_flame uf on uf.id = v.user_flame_id where uf.flame_id = f.id) as video_counter,
+						( select count(fa.id) from flame_audio fa join user_flame uf on uf.id = fa.user_flame_id where uf.flame_id = f.id) as audio_counter,
 						unix_timestamp(f.updated_at) as updated_timestamp,
 						f.view_counter,
 						LENGTH(f.view_counter) - LENGTH(REPLACE(f.view_counter, ",", "")) + 1 as viewer,
