@@ -1346,7 +1346,8 @@ class Controller extends Database {
 							f.country = :country,
 							f.latitude = :latitude,
 							f.longitude = :longitude,
-                                                        f.category_id = :category_id
+                                                        f.category_id = :category_id,
+							f.region=:region
 						where f.id=:flame_id";
 			$this->query($query);
 			$this->bind($bind);
