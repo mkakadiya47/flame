@@ -83,6 +83,7 @@ class PushNotification {
             'alert' => array(
                 'title' => $data['s_first_name'],
                 'body' => $data['message'],
+                'badge' => 1,
              ),
             'sound' => 'default'
         );
