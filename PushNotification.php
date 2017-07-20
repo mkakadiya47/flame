@@ -84,7 +84,7 @@ class PushNotification {
                 'title' => $data['s_first_name'],
                 'body' => $data['message'],
              ),
-            'badge' => "+1",
+            'badge' => +1,
             'sound' => 'default'
         );
         $body['sender_id'] = $data['sender_id'];
