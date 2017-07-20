@@ -81,9 +81,9 @@ class PushNotification {
         // Create the payload body
         $body['aps'] = array(
             'alert' => array(
+                'badge' => '+1',
                 'title' => $data['s_first_name'],
                 'body' => $data['message'],
-                'badge' => 1,
              ),
             'sound' => 'default'
         );
