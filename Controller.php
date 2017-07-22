@@ -611,11 +611,13 @@ class Controller extends Database {
 						f.created_at,
 						f.updated_at,
 						( select v.video from flame_video v join user_flame uf on uf.id = v.user_flame_id where uf.flame_id = f.id limit 1) as video,
+						( select uf.description from user_flame uf where uf.flame_id = f.id limit 1) as description,
 						( select fa.audio from flame_audio fa join user_flame uf on uf.id = fa.user_flame_id where uf.flame_id = f.id limit 1) as audio,
 						unix_timestamp(f.updated_at) as updated_timestamp,
 						f.view_counter,
+						(select count(DISTINCT ul.user_flame_id) as userCount from user_like ul join user_flame uf on uf.flame_id = f.id where ul.user_id = '.$_REQUEST['user_id'].' and ul.user_flame_id = uf.id) as like_status
 						LENGTH(f.view_counter) - LENGTH(REPLACE(f.view_counter, ",", "")) + 1 as viewer,
-						(select fi.image from flame_image fi join user_flame uf on uf.id = fi.user_flame_id where uf.flame_id = f.id limit 1) as image, 
+						(select GROUP_CONCAT(fi.image) from flame_image fi join user_flame uf on uf.id = fi.user_flame_id where uf.flame_id = f.id) as image, 
 						f.category_id,
 						(select count(uf.id) as flamedBy from user_flame uf where uf.flame_id = f.id ) as flamedBy,
 						(
