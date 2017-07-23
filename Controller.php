@@ -1065,7 +1065,7 @@ class Controller extends Database {
 		$bind = array(
 			':user_id' => $_REQUEST["user_id"],
 			':user_flame_id' => $_REQUEST['user_flame_id'],
-			':comment' => mb_convert_encoding($_REQUEST['comment']),
+			':comment' => $_REQUEST['comment'],
 			':comment_date' => date("Y-m-d H:i:s"),
 		);
 		$this->query($query);
