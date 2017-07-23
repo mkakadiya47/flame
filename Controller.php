@@ -336,16 +336,16 @@ class Controller extends Database {
 	}
 
 	public function addFlame(){
-		$categoryQuery = "select id from category c where name = '".$_REQUEST['category_id']."'";
-		$this->query($query);
+		$categoryQuery = "select id from category c where c.name = '".$_REQUEST['category_id']."'";
+		$this->query($categoryQuery);
 		$this->execute();
 		$catResult = $this->single();
 		if($this->rowCount() == 0){
 			$categoryQuery = "INSERT INTO category (name) values ('".$_REQUEST['category_id']."')";
-			$this->query($query);
+			$this->query($categoryQuery);
 			$this->execute();
-			$categoryQuery = "select id from category c where name = '".$_REQUEST['category_id']."'";
-			$this->query($query);
+			$categoryQuery = "select id from category c where c.name = '".$_REQUEST['category_id']."'";
+			$this->query($categoryQuery);
 			$this->execute();
 			$catResult = $this->single();
 		}
@@ -1330,17 +1330,16 @@ class Controller extends Database {
 	}
 
 	public function editFlame(){
-
-		$categoryQuery = "select id from category c where name = '".$_REQUEST['category_id']."'";
-		$this->query($query);
+		$categoryQuery = "select id from category c where c.name = '".$_REQUEST['category_id']."'";
+		$this->query($categoryQuery);
 		$this->execute();
 		$catResult = $this->single();
 		if($this->rowCount() == 0){
 			$categoryQuery = "INSERT INTO category (name) values ('".$_REQUEST['category_id']."')";
-			$this->query($query);
+			$this->query($categoryQuery);
 			$this->execute();
-			$categoryQuery = "select id from category c where name = '".$_REQUEST['category_id']."'";
-			$this->query($query);
+			$categoryQuery = "select id from category c where c.name = '".$_REQUEST['category_id']."'";
+			$this->query($categoryQuery);
 			$this->execute();
 			$catResult = $this->single();
 		}
