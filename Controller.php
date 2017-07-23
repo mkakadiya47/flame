@@ -23,7 +23,7 @@ class Controller extends Database {
 				':email' => urldecode($_REQUEST["email"]),
 				':password' => $this->passwordMd5(urldecode($_REQUEST["password"]))
 			);
-			$query = 'SELECT u.id, u.email, u.first_name, u.last_name, u.image, u.address, u.username, u.country
+			$query = 'SELECT u.id, u.email, u.first_name, u.last_name, u.image, u.address, u.username, u.country, u.about
 			FROM user u ' . $where;
 			$this->query($query);
 			$this->bind($bind);
@@ -98,7 +98,7 @@ class Controller extends Database {
 				$this->query($query);
 				$this->bind($bind);
 				$this->execute();
-				$query = 'SELECT u.id, u.first_name, u.last_name, u.email, u.username, u.country, u.address, u.image
+				$query = 'SELECT u.id, u.first_name, u.last_name, u.email, u.username, u.country, u.address, u.image, u.about
 					FROM user u where u.email="' .$_REQUEST["email"].'"';
 				$this->query($query);
 				$this->execute();
@@ -180,6 +180,7 @@ class Controller extends Database {
 						username = :username,
 						image = :image,
 						country = :country,
+						about = :about,
 						address =:address';
 			$query .= $where;
 			$bind[':id'] = urldecode($_REQUEST["id"]);
@@ -189,12 +190,13 @@ class Controller extends Database {
 			$bind[':country'] = $_REQUEST['country'];
 			$bind[':last_name'] = $_REQUEST['last_name'];
 			$bind[':address'] = $_REQUEST['address'];
+			$bind[':about'] = $_REQUEST['about'];
 			$bind[':image'] = $image;
 			$this->query($query);
 			$this->bind($bind);
 			$this->execute();
 			$where = ' WHERE u.id = '.urldecode($_REQUEST["id"]);
-			$query = 'SELECT u.id, u.first_name, u.last_name, u.email, u.username, u.address, u.image
+			$query = 'SELECT u.id, u.first_name, u.last_name, u.email, u.username, u.address, u.image, u.about
 				FROM user u ' . $where;
 			$this->query($query);
 			$this->execute();
@@ -334,6 +336,19 @@ class Controller extends Database {
 	}
 
 	public function addFlame(){
+		$categoryQuery = "select id from category c where name = '".$_REQUEST['category_id']."'";
+		$this->query($query);
+		$this->execute();
+		$catResult = $this->single();
+		if($this->rowCount() == 0){
+			$categoryQuery = "INSERT INTO category (name) values ('".$_REQUEST['category_id']."')";
+			$this->query($query);
+			$this->execute();
+			$categoryQuery = "select id from category c where name = '".$_REQUEST['category_id']."'";
+			$this->query($query);
+			$this->execute();
+			$catResult = $this->single();
+		}
 		$query = 'INSERT INTO flame SET 
 					created_at = NOW(),
 					updated_at = NOW(),
@@ -355,7 +370,7 @@ class Controller extends Database {
 			':longitude' => $_REQUEST['longitude'],
 			':region' => $_REQUEST['region'],
 			':country' => $_REQUEST['country'],
-			':category_id' => $_REQUEST['category_id'],
+			':category_id' => $catResult['id'],
 		);
 		$this->query($query);
 		$this->bind($bind);
@@ -896,7 +911,8 @@ class Controller extends Database {
 						u.address, 
 						u.image,
 						u.email,
-						u.country
+						u.country,
+						u.about
 						FROM user u
 						JOIN follower f on f.follower_id = u.id where f.user_id ='.$_REQUEST['user_id'];
 		$this->query($query);
@@ -926,7 +942,8 @@ class Controller extends Database {
 						u.address,
 						u.country,
 						uc.comment_date, 
-						uc.comment
+						uc.comment,
+						u.about
 						FROM user_comment uc
 						JOIN user u on u.id = uc.user_id where uc.user_flame_id ='.$_REQUEST['user_flame_id'];
 		$this->query($query);
@@ -1110,7 +1127,7 @@ class Controller extends Database {
 		return $this->response();
 	}
 	private function getUser($userId){
-		$query = 'SELECT u.id, u.first_name, u.last_name, u.email, u.username, u.email, u.address, u.image, u.device_token, u.device, u.country';
+		$query = 'SELECT u.id, u.first_name, u.last_name, u.email, u.username, u.email, u.address, u.image, u.about, u.device_token, u.device, u.country';
 		if(isset($_REQUEST['login_user_id'])){
 			$query .= ', (select count(DISTINCT f.user_id) from follower f where f.follower_id=' .$userId. ' and f.user_id = '.$_REQUEST['login_user_id'].') as followingStatus';
 		}
@@ -1313,6 +1330,20 @@ class Controller extends Database {
 	}
 
 	public function editFlame(){
+
+		$categoryQuery = "select id from category c where name = '".$_REQUEST['category_id']."'";
+		$this->query($query);
+		$this->execute();
+		$catResult = $this->single();
+		if($this->rowCount() == 0){
+			$categoryQuery = "INSERT INTO category (name) values ('".$_REQUEST['category_id']."')";
+			$this->query($query);
+			$this->execute();
+			$categoryQuery = "select id from category c where name = '".$_REQUEST['category_id']."'";
+			$this->query($query);
+			$this->execute();
+			$catResult = $this->single();
+		}
 		$userFlameId = $_REQUEST["user_flame_id"];
 		$bind = array(
 			':user_flame_id' => $_REQUEST["user_flame_id"],
@@ -1337,7 +1368,7 @@ class Controller extends Database {
 				':address' => $_REQUEST["address"],
 				':latitude' => $_REQUEST["latitude"],
 				':longitude' => $_REQUEST["longitude"],
-                                ':category_id' => $_REQUEST["category_id"],
+                ':category_id' => $catResult["id"],
 			);
 			$query = "UPDATE flame f 
 						set 
