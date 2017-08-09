@@ -359,7 +359,9 @@ class Controller extends Database {
 					region = :region, 
 					address = :address, 
 					latitude = :latitude,
+					description = :description,
 					country = :country,
+					user_id = :user_id,
 					longitude = :longitude';
 		$bind = array(
 			':title' => $_REQUEST["title"],
@@ -370,42 +372,39 @@ class Controller extends Database {
 			':longitude' => $_REQUEST['longitude'],
 			':region' => $_REQUEST['region'],
 			':country' => $_REQUEST['country'],
+			':description' => $_REQUEST['description'],
+			':user_id' => $_REQUEST['user_id'],
 			':category_id' => $catResult['id'],
 		);
 		$this->query($query);
 		$this->bind($bind);
 		$this->execute();
 		$flameId = $this->lastInsertId();
-		$this->setUserFlame($flameId, true);
+		$this->setFlameImage($flameId);
+		$this->setFlameAudio($flameId);
+		$this->setFlameVideo($flameId);
 		$this->api_status = '1';
 		$this->api_message = 'Flame added successfully';
 		$this->api_data = '';
  		return $this->response();
 	}
 
-	public function addUserFlame(){
-		$this->setUserFlame($_REQUEST['flame_id']);
-		$this->api_status = '1';
-		$this->api_message = 'Flame added successfully';
-		$this->api_data = '';
- 		return $this->response();
-	}
 	public function addFlameImage(){
-		$this->setFlameImage($_REQUEST['user_flame_id']);
+		$this->setFlameImage($_REQUEST['flame_id']);
 		$this->api_status = '1';
 		$this->api_message = 'Flame image added successfully';
 		$this->api_data = '';
  		return $this->response();
 	}
 	public function addFlameAudio(){
-		$this->setFlameAudio($_REQUEST['user_flame_id']);
+		$this->setFlameAudio($_REQUEST['flame_id']);
 		$this->api_status = '1';
 		$this->api_message = 'Flame added successfully';
 		$this->api_data = '';
  		return $this->response();
 	}
 	public function addFlameVideo(){
-		$this->setFlameVideo($_REQUEST['user_flame_id']);
+		$this->setFlameVideo($_REQUEST['flame_id']);
 		$this->api_status = '1';
 		$this->api_message = 'Flame video added successfully';
 		$this->api_data = '';
@@ -451,11 +450,11 @@ class Controller extends Database {
 	public function addLike(){
 		$query = 'INSERT INTO user_like SET 
 							user_id = :user_id,
-							user_flame_id = :user_flame_id
+							flame_id = :flame_id
 						';
 		$bind = array(
 			':user_id' => $_REQUEST["user_id"],
-			':user_flame_id' => $_REQUEST['user_flame_id'],
+			':flame_id' => $_REQUEST['flame_id'],
 		);
 		$this->query($query);
 		$this->bind($bind);
@@ -468,11 +467,11 @@ class Controller extends Database {
 	public function removeLike(){
 		$query = 'DELETE from user_like where 
 							user_id = :user_id and
-							user_flame_id = :user_flame_id
+							flame_id = :flame_id
 						';
 		$bind = array(
 			':user_id' => $_REQUEST["user_id"],
-			':user_flame_id' => $_REQUEST['user_flame_id'],
+			':flame_id' => $_REQUEST['flame_id'],
 		);
 		$this->query($query);
 		$this->bind($bind);
@@ -483,42 +482,7 @@ class Controller extends Database {
  		return $this->response();
 	}
 
-	private function setUserFlame($flameId, $isSetOwner = false){
-		$query = 'INSERT INTO user_flame SET 
-							flame_id = :flameId,
-							user_id = :user_id, 
-							description = :description
-						';
-		$bind = array(
-			':flameId' => $flameId,
-			':user_id' => $_REQUEST["user_id"],
-			':description' => $_REQUEST['description'],
-		);
-		$this->query($query);
-		$this->bind($bind);
-		$this->execute();
-
-		$userFlameId = $this->lastInsertId();
-		$this->setFlameImage($userFlameId);
-		$this->setFlameAudio($userFlameId);
-		$this->setFlameVideo($userFlameId);
-		if($isSetOwner){
-			$query = 'UPDATE flame f SET 
-							owner_id = :owner_id 
-							Where f.id = :flameId
-						';
-			$bind = array(
-				':flameId' => $flameId,
-				':owner_id' => $_REQUEST["user_id"]
-			);
-			$this->query($query);
-			$this->bind($bind);
-			$this->execute();
-		}
-		
-	}
-
-	private function setFlameImage($userFlameId){
+	private function setFlameImage($flameId){
 		if(isset($_REQUEST['images']) && $_REQUEST['images']){
 			$images = json_decode($_REQUEST['images'], true);
 			foreach ($images as $key => $image) {
@@ -526,12 +490,12 @@ class Controller extends Database {
 				$query = 'INSERT INTO flame_image SET 
 							image = :image,
 							user_id = :user_id, 
-							user_flame_id = :user_flame_id
+							flame_id = :flame_id
 						';
 				$bind = array(
 					':image' => $imageName,
 					':user_id' => $_REQUEST["user_id"],
-					':user_flame_id' => $userFlameId,
+					':flame_id' => $flameId,
 				);
 				$this->query($query);
 				$this->bind($bind);
@@ -540,18 +504,18 @@ class Controller extends Database {
 		}
 	}
 
-	private function setFlameAudio($userFlameId){
+	private function setFlameAudio($flameId){
 		if(isset($_REQUEST['audio']) && $_REQUEST['audio']){
 			$audioName = $this->createAudio($_REQUEST['audio']);
 			$query = 'INSERT INTO flame_audio SET 
 						audio = :audio,
 						user_id = :user_id, 
-						user_flame_id = :user_flame_id
+						flame_id = :flame_id
 					';
 			$bind = array(
 				':audio' => $audioName,
 				':user_id' => $_REQUEST["user_id"],
-				':user_flame_id' => $userFlameId,
+				':flame_id' => $flameId,
 			);
 			$this->query($query);
 			$this->bind($bind);
@@ -559,18 +523,18 @@ class Controller extends Database {
 		}
 	}
 
-	private function setFlameVideo($userFlameId){
+	private function setFlameVideo($flameId){
 		if(isset($_REQUEST['video']) && $_REQUEST['video']){
 			$videoName = $this->createVideo($_REQUEST['video']);
 			$query = 'INSERT INTO flame_video SET 
 						video = :video,
 						user_id = :user_id, 
-						user_flame_id = :user_flame_id
+						flame_id = :flame_id
 					';
 			$bind = array(
 				':video' => $videoName,
 				':user_id' => $_REQUEST["user_id"],
-				':user_flame_id' => $userFlameId,
+				':flame_id' => $flameId,
 			);
 			$this->query($query);
 			$this->bind($bind);
@@ -621,24 +585,22 @@ class Controller extends Database {
 						f.latitude,
 						f.longitude,
 						f.region,
-						f.owner_id,
+						f.user_id,
 						f.country,
 						f.created_at,
 						f.updated_at,
-						( select v.video from flame_video v join user_flame uf on uf.id = v.user_flame_id where uf.flame_id = f.id limit 1) as video,
-						( select uf.description from user_flame uf where uf.flame_id = f.id limit 1) as description,
-						( select fa.audio from flame_audio fa join user_flame uf on uf.id = fa.user_flame_id where uf.flame_id = f.id limit 1) as audio,
+						f.description,
+						( select v.video from flame_video v  where v.flame_id = f.id limit 1) as video,
+						( select fa.audio from flame_audio fa where fa.flame_id = f.id limit 1) as audio,
 						unix_timestamp(f.updated_at) as updated_timestamp,
 						f.view_counter,
-						(select count(DISTINCT ul.user_flame_id) as userCount from user_like ul join user_flame uf on uf.id = ul.user_flame_id where ul.user_id = '.$_REQUEST['user_id'].' and uf.flame_id = f.id) as like_status,
+						(select count(DISTINCT ul.id) as userCount from user_like ul  where ul.user_id = '.$_REQUEST['user_id'].' and ul.flame_id = f.id) as like_status,
 						LENGTH(f.view_counter) - LENGTH(REPLACE(f.view_counter, ",", "")) + 1 as viewer,
-						(select GROUP_CONCAT(fi.image) from flame_image fi join user_flame uf on uf.id = fi.user_flame_id where uf.flame_id = f.id) as image, 
+						(select GROUP_CONCAT(fi.image) from flame_image fi where fi.flame_id = f.id) as image, 
 						f.category_id,
-						(select count(uf.id) as flamedBy from user_flame uf where uf.flame_id = f.id ) as flamedBy,
 						(
-							SELECT count(DISTINCT l.id) as likes FROM user_like l 
-							JOIN user_flame cuf on cuf.id = l.user_flame_id 
-							where cuf.flame_id=f.id
+							SELECT count(DISTINCT l.id) as likes FROM user_like l
+							where l.flame_id=f.id
 						) AS likes
 						';
 		$fromQuery = ' From flame f where f.updated_at >= "'.$currentDate->format('Y-m-d H:i:s').'"';
@@ -686,7 +648,7 @@ class Controller extends Database {
 			$this->api_message = 'SUCCESS';
 			foreach($results as $key => $value)
 			{
-				$results[$key]['owner_detail']=$this->getUser($value['owner_id']);
+				$results[$key]['owner_detail']=$this->getUser($value['user_id']);
 			}
 			$this->api_data = $results;
 		} else {
@@ -716,83 +678,11 @@ class Controller extends Database {
 	 	return $this->response();
   	}
 
-   	public function getFlameUsers() {
-   		$query = 'SELECT f.view_counter FROM flame f where f.id = '.$_REQUEST['flame_id'];
-		$this->query($query);
-		$this->execute();
-		$result = $this->single();
-		$viewer = explode(',', $result['view_counter']);
-		$viewer[] = $_REQUEST['user_id'];
-		$query = 'UPDATE flame f set f.view_counter = :view_counter where f.id = '.$_REQUEST['flame_id'];
-		$bind = array(
-					'view_counter' => implode(',', array_unique(array_filter($viewer)))
-				);
-		$this->query($query);
-		$this->bind($bind);
-		$this->execute();
-
-   		$pageNo = isset($_REQUEST['page'])?$_REQUEST['page']:1;
-
-		$query = 'SELECT 
-						uf.id,
-						uf.description,
-						uf.user_id,
-						u.username,
-						u.first_name, 
-						u.last_name, 
-						u.address,
-						f.country,
-						f.created_at,
-						f.updated_at,
-						unix_timestamp(f.updated_at) as updated_timestamp,
-						f.view_counter,
-						u.image,
-						f.website,
-						f.title,
-						f.latitude,
-						f.longitude,
-						f.category_id,
-						f.address as flame_address,
-						f.mobile,
-						(select fi.image from flame_image fi where fi.user_flame_id = uf.id limit 1) as flame_image,
-						(
-							SELECT count(DISTINCT l.id) as likes FROM user_like l
-							where l.user_flame_id=uf.id
-						) AS likes,
-						(select fa.audio from flame_audio fa where fa.user_flame_id = uf.id limit 1) as flame_audio,
-						(select fv.video from flame_video fv where fv.user_flame_id = uf.id limit 1) as flame_video,
-						(select count(DISTINCT ul.user_flame_id) as userCount from user_like ul where ul.user_id = '.$_REQUEST['user_id'].' and ul.user_flame_id = uf.id) as like_status
-						FROM user_flame uf 
-						JOIN flame f ON f.id = uf.flame_id
-						JOIN user u on u.id = uf.user_id 
-						where uf.flame_id='.$_REQUEST['flame_id'].' order by uf.id DESC';
-		$this->query($query);
-		$this->execute();
-		$this->totalRecords = $this->rowCount();
-		$offset =ITEM_ZISE *($pageNo-1);
-		$query .= " limit ".$offset .", ".ITEM_ZISE;
-		$this->query($query);
-		$this->execute();
-		$results = $this->resultset();
-		
-		if (count($results) > 0) {
-			$this->api_status = '1';
-			$this->api_message = 'SUCCESS';
-			$this->api_data = $results;
-		} else {	
-			$this->api_status = '0';
-			$this->api_message = 'Data not found';
-			$this->api_data = '';
-		}
-	 	return $this->response();
-  	}
-
    	public function getUserFlames() {
    		$pageNo = isset($_REQUEST['page'])?$_REQUEST['page']:1;
 		$query = 'SELECT 
-						uf.id,
-						uf.description,
-						uf.user_id,
+						f.description,
+						f.user_id,
 						u.username,
 						u.first_name, 
 						u.last_name, 
@@ -801,8 +691,7 @@ class Controller extends Database {
 						u.image,
 						f.website,
 						f.title,
-                        f.id as flame_id,
-						f.owner_id,
+                        f.id,
 						f.latitude,
 						f.longitude,
 						f.region,
@@ -816,15 +705,15 @@ class Controller extends Database {
 						f.mobile,
 						(
 							SELECT count(DISTINCT l.id) as likes FROM user_like l
-							where l.user_flame_id=uf.id
+							where l.flame_id=f.id
 						) AS likes,
-						(select fa.audio from flame_audio fa where fa.user_flame_id = uf.id limit 1) as flame_audio,
-						(select fv.video from flame_video fv where fv.user_flame_id = uf.id limit 1) as flame_video,
-						(select count(DISTINCT ul.user_flame_id) as userCount from user_like ul where ul.user_id = '.$_REQUEST['login_user_id'].' and ul.user_flame_id = uf.id) as like_status
-						FROM user_flame uf 
-						JOIN flame f ON f.id = uf.flame_id
-						JOIN user u on u.id = uf.user_id 
-						where uf.user_id='.$_REQUEST['user_id'].' order by uf.id DESC';
+						(select GROUP_CONCAT(fi.image) from flame_image fi where fi.flame_id = f.id) as flame_image,
+						(select fa.audio from flame_audio fa where fa.flame_id = f.id limit 1) as flame_audio,
+						(select fv.video from flame_video fv where fv.flame_id = f.id limit 1) as flame_video,
+						(select count(DISTINCT ul.id) as userCount from user_like ul where ul.user_id = '.$_REQUEST['user_id'].' and ul.flame_id = f.id) as like_status
+						FROM flame f 
+						join user u on u.id = f.user_id
+						where f.user_id='.$_REQUEST['user_id'].' order by f.id DESC';
 		$this->query($query);
 		$this->execute();
 		$this->totalRecords = $this->rowCount();
@@ -832,16 +721,7 @@ class Controller extends Database {
 		$query .= " limit ".$offset .", ".ITEM_ZISE;
 		$this->query($query);
 		$this->execute();
-		$results = $this->resultset();
-
-		$arrayResults = array();
-		foreach ($results as $result) {
-			$query = "select fi.image from flame_image fi where fi.user_flame_id = ".$result['id'];
-			$this->query($query);
-			$this->execute();
-			$result['flame_image'] = array_map('current', $this->resultset());
-			$arrayResults[] = $result;
-		}
+		$arrayResults = $this->resultset();
 		if (count($arrayResults) > 0) {
 			$this->api_status = '1';
 			$this->api_message = 'SUCCESS';
@@ -858,8 +738,7 @@ class Controller extends Database {
 		$query = 'SELECT 
 						count(DISTINCT l.id) as likes
 						FROM user_like l 
-						JOIN user_flame uf on uf.id = l.user_flame_id 
-						where uf.flame_id='.$_REQUEST['flame_id'];
+						where l.flame_id='.$_REQUEST['flame_id'];
 		$this->query($query);
 		$this->execute();
 		$results = $this->single();
@@ -933,7 +812,7 @@ class Controller extends Database {
    	public function getComments() {
 		$query = 'SELECT 
 						uc.id,
-						uc.user_flame_id,
+						uc.flame_id,
 						uc.user_id, 
 						u.username, 
 						u.first_name, 
@@ -945,7 +824,7 @@ class Controller extends Database {
 						uc.comment,
 						u.about
 						FROM user_comment uc
-						JOIN user u on u.id = uc.user_id where uc.user_flame_id ='.$_REQUEST['user_flame_id'];
+						where uc.flame_id ='.$_REQUEST['flame_id'];
 		$this->query($query);
 		$this->execute();
 		$results = $this->resultset();
@@ -966,7 +845,7 @@ class Controller extends Database {
 						i.id,
 						i.user_id, 
 						i.image
-						FROM flame_image i where i.user_flame_id ='.$_REQUEST['user_flame_id'];
+						FROM flame_image i where i.flame_id ='.$_REQUEST['flame_id'];
 		$this->query($query);
 		$this->execute();
 		$results = $this->resultset();
@@ -987,7 +866,7 @@ class Controller extends Database {
 						i.id,
 						i.user_id, 
 						i.audio
-						FROM flame_audio i where i.user_flame_id ='.$_REQUEST['user_flame_id'];
+						FROM flame_audio i where i.flame_id ='.$_REQUEST['flame_id'];
 		$this->query($query);
 		$this->execute();
 		$results = $this->resultset();
@@ -1008,7 +887,7 @@ class Controller extends Database {
 						i.id,
 						i.user_id, 
 						i.video
-						FROM flame_video i where i.user_flame_id ='.$_REQUEST['user_flame_id'];
+						FROM flame_video i where i.flame_id ='.$_REQUEST['flame_id'];
 		$this->query($query);
 		$this->execute();
 		$results = $this->resultset();
@@ -1058,13 +937,13 @@ class Controller extends Database {
 		// var_dump($date);exit;
 		$query = 'INSERT INTO user_comment SET 
 							user_id = :user_id,
-							user_flame_id = :user_flame_id,
+							flame_id = :flame_id,
 							comment = :comment,
 							comment_date = :comment_date
 						';
 		$bind = array(
 			':user_id' => $_REQUEST["user_id"],
-			':user_flame_id' => $_REQUEST['user_flame_id'],
+			':flame_id' => $_REQUEST['flame_id'],
 			':comment' => $_REQUEST['comment'],
 			':comment_date' => date("Y-m-d H:i:s"),
 		);
@@ -1289,32 +1168,7 @@ class Controller extends Database {
 		$this->api_data = '';
 	 	return $this->response();
 	}
-	public function deleteFlameUser(){
-		$bind = array(
-			':user_flame_id' => $_REQUEST["user_flame_id"]
-		);
-		$query = "SELECT count(DISTINCT cuf.id) as flameUser, f.id from user_flame uf 
-					join flame f on f.id = uf.flame_id 
-					join user_flame cuf on cuf.flame_id = f.id
-					where uf.id = :user_flame_id";
-		$this->query($query);
-		$this->bind($bind);
-		$this->execute();
-		$result = $this->single();
-		if($result['flameUser'] == 1){
-			$this->deleteFlame($result['id']);
-		}else{
-			$query = 'DELETE FROM user_flame where id= :user_flame_id';
-			
-			$this->query($query);
-			$this->bind($bind);
-			$this->execute();
-		}
-		$this->api_status = '1';
-		$this->api_message = 'Flame user deleted successfully';
-		$this->api_data = '';
-	 	return $this->response();
-	}
+	
 	public function arrayRemoveNull($array) {
 	    foreach ($array as $key => $value)
 	    {
@@ -1343,52 +1197,41 @@ class Controller extends Database {
 			$this->execute();
 			$catResult = $this->single();
 		}
-		$userFlameId = $_REQUEST["user_flame_id"];
+		$flameId = $_REQUEST["flame_id"];
 		$bind = array(
-			':user_flame_id' => $_REQUEST["user_flame_id"],
+			':flame_id' => $_REQUEST["flame_id"],
+			':title' => $_REQUEST["title"],
+			':website' => $_REQUEST["website"],
+			':mobile' => $_REQUEST["mobile"],
+			':country' => $_REQUEST["country"],
+			':region' => $_REQUEST["region"],
+			':address' => $_REQUEST["address"],
+			':latitude' => $_REQUEST["latitude"],
+			':longitude' => $_REQUEST["longitude"],
 			':description' => $_REQUEST["description"],
+            ':category_id' => $catResult["id"],
 		);
-		$query = "UPDATE user_flame uf set uf.description = :description where uf.id=:user_flame_id";
-		$updateMainFlameQuery = "UPDATE flame f set f.updated_at = NOW() where f.id=".$_REQUEST["flame_id"];
+		$query = "UPDATE flame f 
+					set 
+						f.updated_at = NOW(),
+						f.title = :title,
+						f.website = :website,
+						f.mobile = :mobile,
+						f.address = :address,
+						f.country = :country,
+						f.latitude = :latitude,
+						f.longitude = :longitude,
+						f.longitude = :longitude,
+                        f.description = :description,
+						f.region=:region
+					where f.id=:flame_id";
 		$this->query($query);
 		$this->bind($bind);
 		$this->execute();
-		$this->query($updateMainFlameQuery);
-		$this->execute();
-		if($_REQUEST['edit_type'] == 'Flame'){
-			$flameId = $_REQUEST["flame_id"];
-			$bind = array(
-				':flame_id' => $_REQUEST["flame_id"],
-				':title' => $_REQUEST["title"],
-				':website' => $_REQUEST["website"],
-				':mobile' => $_REQUEST["mobile"],
-				':country' => $_REQUEST["country"],
-				':region' => $_REQUEST["region"],
-				':address' => $_REQUEST["address"],
-				':latitude' => $_REQUEST["latitude"],
-				':longitude' => $_REQUEST["longitude"],
-                ':category_id' => $catResult["id"],
-			);
-			$query = "UPDATE flame f 
-						set 
-							f.title = :title,
-							f.website = :website,
-							f.mobile = :mobile,
-							f.address = :address,
-							f.country = :country,
-							f.latitude = :latitude,
-							f.longitude = :longitude,
-                                                        f.category_id = :category_id,
-							f.region=:region
-						where f.id=:flame_id";
-			$this->query($query);
-			$this->bind($bind);
-			$this->execute();
-		}
 
-		$this->setFlameImage($userFlameId);
-		$this->setFlameAudio($userFlameId);
-		$this->setFlameVideo($userFlameId);
+		$this->setFlameImage($_REQUEST["flame_id"]);
+		$this->setFlameAudio($_REQUEST["flame_id"]);
+		$this->setFlameVideo($_REQUEST["flame_id"]);
 		$this->deleteFlameImage();
 		$this->deleteFlameAudio();
 		$this->deleteFlameVideo();
@@ -1441,5 +1284,24 @@ class Controller extends Database {
 			$this->bind($bind);
 			$this->execute();
 		}
+	}
+	public function addViewer() {
+   		$query = 'SELECT f.view_counter FROM flame f where f.id = '.$_REQUEST['flame_id'];
+		$this->query($query);
+		$this->execute();
+		$result = $this->single();
+		$viewer = explode(',', $result['view_counter']);
+		$viewer[] = $_REQUEST['user_id'];
+		$query = 'UPDATE flame f set f.view_counter = :view_counter where f.id = '.$_REQUEST['flame_id'];
+		$bind = array(
+					'view_counter' => implode(',', array_unique(array_filter($viewer)))
+				);
+		$this->query($query);
+		$this->bind($bind);
+		$this->execute();
+		$this->api_status = '1';
+		$this->api_message = 'Viewer added successfully';
+		$this->api_data = '';
+	 	return $this->response();
 	}
 }
