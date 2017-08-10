@@ -87,7 +87,7 @@ class PushNotification {
             'badge' => +1,
             'sound' => 'default'
         );
-        $body['sender_id'] = $data['sender_id'];
+        $body['id'] = $data['sender_id'];
 
         // Encode the payload as JSON
         $payload = json_encode($body);
