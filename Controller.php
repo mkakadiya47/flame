@@ -824,6 +824,7 @@ class Controller extends Database {
 						uc.comment,
 						u.about
 						FROM user_comment uc
+						Join user u on u.id = uc.user_id
 						where uc.flame_id ='.$_REQUEST['flame_id'];
 		$this->query($query);
 		$this->execute();
