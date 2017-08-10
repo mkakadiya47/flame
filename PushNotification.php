@@ -15,7 +15,7 @@ class PushNotification {
             'message' => $data['message'],
             'subtitle' => '',
             'tickerText' => '',
-            'sender_id' => $data['sender_id'],
+            'id' => $data['sender_id'],
             'msgcnt' => 1,
             'vibrate' => 1
         );
