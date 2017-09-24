@@ -713,7 +713,14 @@ class Controller extends Database {
 						(select count(DISTINCT ul.id) as userCount from user_like ul where ul.user_id = '.$_REQUEST['user_id'].' and ul.flame_id = f.id) as like_status
 						FROM flame f 
 						join user u on u.id = f.user_id
-						where f.user_id='.$_REQUEST['user_id'].' order by f.id DESC';
+						where f.user_id='.$_REQUEST['user_id'];
+		if(isset($_REQUEST['category_id']) && $_REQUEST['category_id']){
+			$fromQuery .= ' and f.category_id = '.$_REQUEST['category_id'];
+		}
+		if(isset($_REQUEST['country']) && $_REQUEST['country']){
+			$fromQuery .= ' and f.country = "'.$_REQUEST['country'].'"';
+		}
+		$query .= ' order by f.id DESC';
 		$this->query($query);
 		$this->execute();
 		$this->totalRecords = $this->rowCount();
