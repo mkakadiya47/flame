@@ -715,10 +715,10 @@ class Controller extends Database {
 						join user u on u.id = f.user_id
 						where f.user_id='.$_REQUEST['user_id'];
 		if(isset($_REQUEST['category_id']) && $_REQUEST['category_id']){
-			$fromQuery .= ' and f.category_id = '.$_REQUEST['category_id'];
+			$query .= ' and f.category_id = '.$_REQUEST['category_id'];
 		}
 		if(isset($_REQUEST['country']) && $_REQUEST['country']){
-			$fromQuery .= ' and f.country = "'.$_REQUEST['country'].'"';
+			$query .= ' and f.country = "'.$_REQUEST['country'].'"';
 		}
 		$query .= ' order by f.id DESC';
 		$this->query($query);
